@@ -1,0 +1,110 @@
+---
+sidebar_position: 1
+---
+
+# Sorting
+
+A Sorting Algorithm is used to rearrange a given array or list of elements according to a comparison operator on the elements. The comparison operator is used to decide the new order of elements in the respective data structure.
+
+## Bubble Sort
+
+**Bubble sort** algorithm is an algorithm that sorts an array by comparing two neighboring elements and swapping them if they are not in the desired order. Here order can be anything like increasing or decreasing.
+
+Refer: https://www.w3schools.com/dsa/dsa_algo_bubblesort.php
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="apple" label="JS" default>
+    ```js
+    const bubbleSort = (arr) => {
+        for (let j = 0; j < arr.length; j++) {
+            let swapped;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    var temp = arr[i];
+                    arr[i] = arr[i + 1]
+                    arr[i + 1] = temp
+                    swapped = true;
+                }
+            }
+            if(!swapped)
+                break;
+        }
+        return arr;
+    }
+    ```
+  </TabItem>
+  <TabItem value="orange" label="Golang">
+    ```go
+    func bubbleSort(arr []int) []int {
+        var swapped bool
+        for j := 0; j < len(arr)-1; j++ {
+            swapped = false
+            for i := 0; i < len(arr)-1; i++ {
+                if arr[i] > arr[i+1] {
+                    arr[i], arr[i+1] = arr[i+1], arr[i]
+                    swapped = true
+                }
+            }
+            if !swapped {
+                break
+            }
+        }
+        return arr
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Selection Sort
+
+The Selection Sort algorithm finds the lowest value in an array and moves it to the front of the array.
+
+Ref: https://www.w3schools.com/dsa/dsa_algo_selectionsort.php
+
+<Tabs>
+  <TabItem value="apple" label="JS" default>
+    ```js
+    const selectionSort = (array) => {
+        for (let i = 0; i < array.length; i++) {
+            let lowest = i;
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[lowest] > array[j]) {
+                    lowest = j;
+                }
+            }
+            if (i !== lowest) {
+                [array[i], array[lowest]] = [array[lowest], array[i]];
+            }
+        }
+        console.log(array);
+        return array;
+    }
+    ```
+  </TabItem>
+  <TabItem value="orange" label="Golang">
+    ```go
+    func selectionSort(array []int) []int {
+        fmt.Println(array)
+        for i := 0; i < len(array); i++ {
+            lowest := i
+            for j := i + 1; j < len(array); j++ {
+                if array[lowest] > array[j] {
+                    lowest = j
+                }
+            }
+            if i != lowest {
+                array[i], array[lowest] = array[lowest], array[i]
+            }
+        }
+
+        return array
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+
+
